@@ -1,0 +1,37 @@
+#. F:\Launcher\scripts\start.ps1 "{Name}" "himi/gimi/wwmi/srmi/zzmi"
+#or
+#. F:\Launcher\scripts\start.ps1 "{Name}"
+#or
+Start-Process powershell.exe `
+ -ArgumentList '-NoProfile -WindowStyle Hidden -File "F:\Launcher\scripts\start.ps1" "{Name}"' `
+ -WindowStyle Hidden -Wait
+or
+Start-Process powershell.exe `
+ -ArgumentList '-NoProfile -WindowStyle Hidden -File "F:\Launcher\scripts\start.ps1" "{Name}"' "himi/gimi/wwmi/srmi/zzmi"`
+ -WindowStyle Hidden -Wait
+
+global before game launch
+Start-Process powershell.exe `
+    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Start-ScheduledTask -TaskName \"Ram Cleaner\" -TaskPath \"ZyC\""' `
+    -WindowStyle Hidden
+
+global after game lauch
+
+#Stop-ScheduledTask -TaskName "kill-launcher"  -TaskPath "ZyC" 
+#Start-ScheduledTask -TaskName "kill-launcher"  -TaskPath "ZyC" 
+
+Start-Process powershell.exe `
+    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Stop-ScheduledTask -TaskName \"kill-launcher\" -TaskPath \"ZyC\""' `
+    -WindowStyle Hidden
+Start-Process powershell.exe `
+    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Start-ScheduledTask -TaskName \"kill-launcher\" -TaskPath \"ZyC\""' `
+    -WindowStyle Hidden
+
+
+global exit
+Start-Process powershell.exe `
+    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Stop-ScheduledTask -TaskName \"Ram Cleaner\" -TaskPath \"ZyC\""' `
+    -WindowStyle Hidden
+Start-Process powershell.exe `
+    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Start-ScheduledTask -TaskName \"Ram Cleaner\" -TaskPath \"ZyC\""' `
+    -WindowStyle Hidden
