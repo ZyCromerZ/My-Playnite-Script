@@ -94,7 +94,7 @@ function KillIt {
     # Kill-Process -ProcessName "$KillExe"
     return
 }
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 30
 
 if ((Is-ProcessRunning -ProcessName "Games")) {
     KillIt -KillExe "Games" -GameExeName "Endfield" -sleepTime 10
