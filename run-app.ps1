@@ -22,14 +22,14 @@ if (-not $IsAdmin) {
                 '-ExecutionPolicy', 'Bypass',
                 '-File', "`"$scriptPath`""
                 $argString
-            ) -WindowStyle Hidden        } else {
+            )        } else {
             # Relaunch PowerShell with elevation
             Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 '-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',
                 '-File', "`"$scriptPath`""
-            ) -WindowStyle Hidden
+            )
         }
 
         exit  # Exit current non-admin session
@@ -43,6 +43,8 @@ if (-not $IsAdmin) {
 if ($args){
     $GetExe=$args[0]
     $GetArgs=$args[1]
+    $GetExeDir = (Split-Path -Parent $GetExe)
+    cd "$GetExeDir"
     if($GetArgs){
         Start-Process "$GetExe" -ArgumentList "$GetArgs"
     } else {

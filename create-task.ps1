@@ -16,7 +16,7 @@ if (-not $IsAdmin) {
             $argString = $escapedArgs -join ' '
 
             # Relaunch PowerShell with elevation
-            Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
+            Start-Process powershell -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 #'-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',
@@ -24,7 +24,7 @@ if (-not $IsAdmin) {
                 $argString
             )        } else {
             # Relaunch PowerShell with elevation
-            Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
+            Start-Process powershell -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 #'-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',
@@ -52,7 +52,7 @@ function MakeTask {
     $GameNameR="$GameName"
     $GameName=$GameName.Replace(":", " ")
     if ($UsePS) {
-        $Action = New-ScheduledTaskAction -Execute "powershell.exe" -DontShow $true -Argument "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\run-app.ps1`" `"$ExeDir`" $Argx"
+        $Action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\run-app.ps1`" `"$ExeDir`" $Argx"
     } else{
         if ($Argx) {
             $Action = New-ScheduledTaskAction -Execute "$ExeDir" -Argument "$Argx"
@@ -75,7 +75,8 @@ MakeTask -UsePS $true -ExeDir "F:\Game Online\GRYPHLINK\Launcher.exe" -GameName 
 MakeTask -UsePS $true -ExeDir "F:\Game Online\Wuthering Waves\launcher.exe" -GameName "Wuthering Waves" 
 MakeTask -UsePS $true -ExeDir "F:\Game Online\Honkai Impact 3 game\BH3.exe" -GameName "Honkai Impact 3rd" 
 MakeTask -UsePS $true -ExeDir "E:\Games Online\Star Rail Games\StarRail.exe" -GameName "Honkai: Star Rail" 
-MakeTask -UsePS $true -ExeDir "E:\Games Online\Genshin Impact game\GenshinImpact.exe" -GameName "Genshin Impact" 
+MakeTask -UsePS $true -ExeDir "E:\Games Online\Genshin Impact game\GenshinImpact.exe" -GameName "Genshin Impact"
+MakeTask -UsePS $true -ExeDir "E:\Games\Grand Theft Auto V\PlayGTAV ini.bat" -GameName "Grand Theft Auto V" 
 
 
 
@@ -100,4 +101,4 @@ foreach ($item in $items) {
     }
 }
 MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\RAMMap-1.62\clear-all.ps1`"" -GameName "Ram Cleaner"
-pause
+#pause

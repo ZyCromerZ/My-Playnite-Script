@@ -23,14 +23,14 @@ if (-not $IsAdmin) {
                 '-ExecutionPolicy', 'Bypass',
                 '-File', "`"$scriptPath`""
                 $argString
-            ) -WindowStyle Hidden        } else {
+            )        } else {
             # Relaunch PowerShell with elevation
             Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 '-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',
                 '-File', "`"$scriptPath`""
-            ) -WindowStyle Hidden
+            )
         }
 
         exit  # Exit current non-admin session
@@ -94,7 +94,7 @@ function KillIt {
     # Kill-Process -ProcessName "$KillExe"
     return
 }
-Start-Sleep -Seconds 30
+Start-Sleep -Seconds 120
 
 if ((Is-ProcessRunning -ProcessName "Games")) {
     KillIt -KillExe "Games" -GameExeName "Endfield" -sleepTime 10

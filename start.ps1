@@ -41,6 +41,11 @@ if ($GetTypeName){
     } elseif ("$GetTypeName" -eq "Genshin Impact") {
         Start-Sleep -Seconds 30
         Is-ProcessRunning -ProcessName "GenshinImpact"
+    } elseif ("$GetTypeName" -eq "Grand Theft Auto V") {
+        Start-Sleep -Seconds 30
+        Is-ProcessRunning -ProcessName "PlayGTAV"
+	Start-Sleep -Seconds 30
+        Is-ProcessRunning -ProcessName "GTA5"
     } else {
         exit 1
     }
