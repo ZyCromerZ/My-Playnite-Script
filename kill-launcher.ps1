@@ -17,7 +17,7 @@ if (-not $IsAdmin) {
             $argString = $escapedArgs -join ' '
 
             # Relaunch PowerShell with elevation
-            Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
+            Start-Process powershell -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 '-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',
@@ -25,7 +25,7 @@ if (-not $IsAdmin) {
                 $argString
             )        } else {
             # Relaunch PowerShell with elevation
-            Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
+            Start-Process powershell -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 '-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',

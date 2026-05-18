@@ -1,4 +1,3 @@
-
 # Check if running as Administrator
 $IsAdmin = ([Security.Principal.WindowsPrincipal] `
     [Security.Principal.WindowsIdentity]::GetCurrent()
@@ -16,7 +15,7 @@ if (-not $IsAdmin) {
             $argString = $escapedArgs -join ' '
 
             # Relaunch PowerShell with elevation
-            Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
+            Start-Process powershell -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 '-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',
@@ -24,7 +23,7 @@ if (-not $IsAdmin) {
                 $argString
             ) -WindowStyle Hidden        } else {
             # Relaunch PowerShell with elevation
-            Start-Process powershell -WindowStyle Hidden -Verb RunAs -ArgumentList @(
+            Start-Process powershell -Verb RunAs -ArgumentList @(
                 '-NoProfile',
                 '-WindowStyle Hidden',
                 '-ExecutionPolicy', 'Bypass',
@@ -39,9 +38,9 @@ if (-not $IsAdmin) {
         exit 1
     }
 }
-Start-Process "RAMMap64.exe " -ArgumentList "-Ew"
-Start-Process "RAMMap64.exe " -ArgumentList "-Es"
-Start-Process "RAMMap64.exe " -ArgumentList "-Em"
-Start-Process "RAMMap64.exe " -ArgumentList "-Et"
-Start-Process "RAMMap64.exe " -ArgumentList "-E0"
+Start-Process "RAMMap.exe " -ArgumentList "-Ew"
+Start-Process "RAMMap.exe " -ArgumentList "-Es"
+Start-Process "RAMMap.exe " -ArgumentList "-Em"
+Start-Process "RAMMap.exe " -ArgumentList "-Et"
+Start-Process "RAMMap.exe " -ArgumentList "-E0"
 exit 0

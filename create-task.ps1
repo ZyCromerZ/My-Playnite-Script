@@ -101,7 +101,7 @@ foreach ($item in $items) {
         MakeTask -UsePS $true -ExeDir "$xxmiPath" -Argx "`"--update --nogui --xxmi $item`"" -GameName "xxmi-$item"
     }
 }
-MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\RAMMap-1.62\clear-all.ps1`"" -GameName "Ram Cleaner"
+MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\RAMMap\clear-all.ps1`"" -GameName "Ram Cleaner"
 MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\Defender\enable-defender.ps1`"" -GameName "Enable WinDefender"
 MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\Defender\disable-defender.ps1`"" -GameName "Disable WinDefender"
 pause
