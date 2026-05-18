@@ -21,7 +21,7 @@ global after game lauch
 #Start-ScheduledTask -TaskName "kill-launcher"  -TaskPath "ZyC" 
 
 Start-Process powershell.exe `
-    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Stop-ScheduledTask -TaskName \"kill-launcher\" -TaskPath \"ZyC\""' `
+    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Stop-ScheduledTask -TaskName \"Disable WinDefender\" -TaskPath \"ZyC\""' `
     -WindowStyle Hidden
 Start-Process powershell.exe `
     -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Start-ScheduledTask -TaskName \"kill-launcher\" -TaskPath \"ZyC\""' `
@@ -30,7 +30,7 @@ Start-Process powershell.exe `
 
 global exit
 Start-Process powershell.exe `
-    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Stop-ScheduledTask -TaskName \"Ram Cleaner\" -TaskPath \"ZyC\""' `
+    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Stop-ScheduledTask -TaskName \"Enable WinDefender\" -TaskPath \"ZyC\""' `
     -WindowStyle Hidden
 Start-Process powershell.exe `
     -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Start-ScheduledTask -TaskName \"Ram Cleaner\" -TaskPath \"ZyC\""' `
