@@ -90,6 +90,7 @@ $items = @("gimi", "himi", "srmi", "wwmi", "zzmi", "efmi")
 # Loop through each item and print it
 $xxmiPath='F:\Game Online\00-mods\FlairX Mod Manager\app\XXMI\Resources\Bin\XXMI Launcher.exe'
 $xxmiPathGI='F:\Game Online\00-mods\xxmi\Resources\Bin\XXMI Launcher.exe'
+$xxmiPathGI='F:\Game Online\00-mods\FlairX Mod Manager\app\XXMI\Resources\Bin\XXMI Launcher.exe'
 foreach ($item in $items) {
     # $Action = New-ScheduledTaskAction -Execute "$xxmiPath" -Argument "--update --nogui --xxmi $item"
     # Unregister-ScheduledTask -TaskName "xxmi-$item" -Confirm:$false
@@ -101,4 +102,6 @@ foreach ($item in $items) {
     }
 }
 MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\RAMMap-1.62\clear-all.ps1`"" -GameName "Ram Cleaner"
-#pause
+MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\Defender\enable-defender.ps1`"" -GameName "Enable WinDefender"
+MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\Defender\disable-defender.ps1`"" -GameName "Disable WinDefender"
+pause

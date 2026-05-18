@@ -12,7 +12,7 @@ $GetModType=$args[1]
 if( $GetModType ){
     if ( "$GetModType" -ne "blank" ){
         Start-ScheduledTask -TaskName "xxmi-$GetModType" -TaskPath "ZyC"
-        Start-Sleep -Seconds 1
+        Start-Sleep -Seconds 5
     }
 }
 $GetTypeName=$args[0]
@@ -22,15 +22,19 @@ if ($GetTypeName){
     Start-Sleep -Seconds 1
     Start-ScheduledTask -TaskName "$getClearName" -TaskPath "ZyC"
     if ("$GetTypeName" -eq "Goddess of Victory: Nikke") {
+	Start-Sleep -Seconds 30
         Is-ProcessRunning -ProcessName "nikke_launcher"
         Is-ProcessRunning -ProcessName "nikke"
     } elseif ("$GetTypeName" -eq "Arknights: Endfield") {
+	Start-Sleep -Seconds 30
         Is-ProcessRunning -ProcessName "Games"
         Is-ProcessRunning -ProcessName "Endfield"
     } elseif ("$GetTypeName" -eq "Wuthering Waves") {
+	Start-Sleep -Seconds 30
         Is-ProcessRunning -ProcessName "launcher_main"
         Is-ProcessRunning -ProcessName "Wuthering Waves"
     } elseif ("$GetTypeName" -eq "Zenless Zone Zero") {
+	Start-Sleep -Seconds 30
         Is-ProcessRunning -ProcessName "ZenlessZoneZero"
     } elseif ("$GetTypeName" -eq "Honkai Impact 3rd") {
         Start-Sleep -Seconds 30

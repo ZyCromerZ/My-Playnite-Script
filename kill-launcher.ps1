@@ -78,6 +78,7 @@ function KillIt {
             if ((Is-ProcessRunning -ProcessName "$GameItem")) {
                 foreach ($KillLauncher in $KillExeArray) {
                     if ((Is-ProcessRunning -ProcessName "$KillLauncher")) {
+			Start-Sleep -Seconds $sleepTime
                         Kill-Process -ProcessName "$KillLauncher"
                         $Doloop=$false
                     } else {

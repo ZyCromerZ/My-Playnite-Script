@@ -1,0 +1,1 @@
+. "$PSScriptRoot\WinDefCtl.ps1" rtp off
