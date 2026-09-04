@@ -105,6 +105,8 @@ if ((Is-ProcessRunning -ProcessName "Games")) {
     KillIt -KillExe "nikke_launcher" -GameExeName "nikke" -sleepTime 300
 } elseif ((Is-ProcessRunning -ProcessName "HYP,HYPHelper")) {
     KillIt -KillExe "HYP,HYPHelper" -GameExeName "ZenlessZoneZero,BH3,StarRail,GenshinImpact" -sleepTime 10
+} elseif ((Is-ProcessRunning -ProcessName "NTEGlobalLauncher,NTEGlobalGame")) {
+    KillIt -KillExe "NTEGlobalLauncher,NTEGlobalGame" -GameExeName "HTGame" -sleepTime 10
 }
 exit 0
 

@@ -13,24 +13,25 @@ Start-Process powershell.exe `
 
 
 -- Global Before --
-Start-Process powershell.exe `
-    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Start-ScheduledTask -TaskName \"Ram Cleaner\" -TaskPath \"ZyC\""' `
-    -WindowStyle Hidden
+. "F:\Launcher\scripts\Get-Function.ps1"
 
-Start-Process powershell.exe `
-    -ArgumentList '-NoProfile -Command "Start-ScheduledTask -TaskName \"Disable WinDefender\" -TaskPath \"ZyC\""'
-
-Start-Sleep -Seconds 2
+RunService -ProcessName "Ram Cleaner"
+WaitService -ProcessName "Enable WinDefender"
+RunService -ProcessName "Disable WinDefender"
+WaitService -ProcessName "Disable WinDefender"
 
 -- Global When Started --
-Start-Process powershell.exe `
-    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Start-ScheduledTask -TaskName \"kill-launcher\" -TaskPath \"ZyC\""' `
-    -WindowStyle Hidden
+. "F:\Launcher\scripts\Get-Function.ps1"
+
+RunService -ProcessName "kill-launcher"
 
 -- Global After --
-Start-Process powershell.exe `
-    -ArgumentList '-NoProfile -WindowStyle Hidden -Command "Stop-ScheduledTask -TaskName \"Ram Cleaner\" -TaskPath \"ZyC\""' `
-    -WindowStyle Hidden
+. "F:\Launcher\scripts\Get-Function.ps1"
 
-Start-Process powershell.exe `
-    -ArgumentList '-NoProfile -Command "Start-ScheduledTask -TaskName \"Enable WinDefender\" -TaskPath \"ZyC\""'
+KillService -ProcessName "Ram Cleaner"
+KillService -ProcessName "kill-launcher"
+RunService -ProcessName "Enable WinDefender"
+
+
+
+

@@ -76,9 +76,9 @@ MakeTask -UsePS $true -ExeDir "F:\Game Online\Wuthering Waves\launcher.exe" -Gam
 MakeTask -UsePS $true -ExeDir "F:\Game Online\Honkai Impact 3 game\BH3.exe" -GameName "Honkai Impact 3rd" 
 MakeTask -UsePS $true -ExeDir "E:\Games Online\Star Rail Games\StarRail.exe" -GameName "Honkai: Star Rail" 
 MakeTask -UsePS $true -ExeDir "E:\Games Online\Genshin Impact game\GenshinImpact.exe" -GameName "Genshin Impact"
-MakeTask -UsePS $true -ExeDir "E:\Games\Grand Theft Auto V\PlayGTAV ini.bat" -GameName "Grand Theft Auto V" 
-
-
+MakeTask -UsePS $true -ExeDir "E:\Games\Grand Theft Auto V\PlayGTAV.exe" -GameName "Grand Theft Auto V" 
+MakeTask -UsePS $true -ExeDir "F:\Game Online\Neverness To Everness\NTEGlobalLauncher.exe" -GameName "Neverness to Everness" 
+MakeTask -UsePS $true -ExeDir "E:\Games\SP Football Life 2026\FL 2026 start.exe" -GameName "SP Football Life 2026" 
 
 # $Action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\kill-launcher.ps1`" "
 # Unregister-ScheduledTask -TaskName "kill-launcher" -Confirm:$false
@@ -90,15 +90,15 @@ $items = @("gimi", "himi", "srmi", "wwmi", "zzmi", "efmi")
 # Loop through each item and print it
 $xxmiPath='F:\Game Online\00-mods\FlairX Mod Manager\app\XXMI\Resources\Bin\XXMI Launcher.exe'
 $xxmiPathGI='F:\Game Online\00-mods\xxmi\Resources\Bin\XXMI Launcher.exe'
-$xxmiPathGI='F:\Game Online\00-mods\FlairX Mod Manager\app\XXMI\Resources\Bin\XXMI Launcher.exe'
+# $xxmiPathGI='F:\Game Online\00-mods\FlairX Mod Manager\app\XXMI\Resources\Bin\XXMI Launcher.exe'
 foreach ($item in $items) {
-    # $Action = New-ScheduledTaskAction -Execute "$xxmiPath" -Argument "--update --nogui --xxmi $item"
+    # $Action = New-ScheduledTaskAction -Execute "$xxmiPath" -Argument "--nogui --xxmi $item"
     # Unregister-ScheduledTask -TaskName "xxmi-$item" -Confirm:$false
     # Register-ScheduledTask -TaskName "xxmi-$item"  -TaskPath "ZyC" -Action $Action -Description "Runs script with parameters" -RunLevel Highest
     if ($item -eq "gimi") {
         MakeTask -UsePS $true -ExeDir "$xxmiPathGI" -Argx "`"--nogui --xxmi $item`"" -GameName "xxmi-$item"
     } else {
-        MakeTask -UsePS $true -ExeDir "$xxmiPath" -Argx "`"--update --nogui --xxmi $item`"" -GameName "xxmi-$item"
+        MakeTask -UsePS $true -ExeDir "$xxmiPath" -Argx "`"--nogui --xxmi $item`"" -GameName "xxmi-$item"
     }
 }
 MakeTask -ExeDir "powershell.exe" -Argx "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"F:\Launcher\scripts\RAMMap\clear-all.ps1`"" -GameName "Ram Cleaner"
